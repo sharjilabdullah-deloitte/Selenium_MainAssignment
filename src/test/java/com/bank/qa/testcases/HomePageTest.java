@@ -23,12 +23,14 @@ public class HomePageTest extends TestBase {
     public void setUp(){
         initialization();
         homePage=new HomePage();
-        customerLogin=new CustomerLogin();
+
+        //customerLogin=new CustomerLogin();
         bankManagerLoginPage= new BankManagerLoginPage();
     }
 
     @Test(priority = 1)
     public void selectCustomerLoginTest(){
+        customerLogin=new CustomerLogin();
         customerLogin=homePage.selectCustomerLogin();
     }
 
