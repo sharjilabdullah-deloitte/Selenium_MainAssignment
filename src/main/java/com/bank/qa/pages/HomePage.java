@@ -7,21 +7,31 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends TestBase {
 
-    WebElement customerLoginBtn= driver.findElement(By.xpath("//button[text()='Customer Login']"));
+   /* WebElement customerLoginBtn= driver.findElement(By.xpath("//button[text()='Customer Login']"));
     WebElement bankManagerLoginBtn =driver.findElement(By.xpath("//button[text()='Bank Manager Login']"));
-    WebElement homeBtn= driver.findElement(By.xpath("//button[contains(text(),'Home')]"));
+    WebElement homeBtn= driver.findElement(By.xpath("//button[contains(text(),'Home')]"));*/
 
-    public HomePage(){
+    WebElement customerLoginBtn;
+    WebElement bankManagerLoginBtn;
+    WebElement homeBtn;
 
-        PageFactory.initElements(driver,this);
+
+    public HomePage() {
+
+        PageFactory.initElements(driver, this);
+        customerLoginBtn = driver.findElement(By.xpath("//button[text()='Customer Login']"));
+        bankManagerLoginBtn = driver.findElement(By.xpath("//button[text()='Bank Manager Login']"));
+        homeBtn = driver.findElement(By.xpath("//button[contains(text(),'Home')]"));
+
     }
 
     //Functions
-    public CustomerLogin selectCustomerLogin(){
+    public CustomerLogin selectCustomerLogin() {
         customerLoginBtn.click();
         return new CustomerLogin();
     }
-    public BankManagerLoginPage selectBankManagerLogin(){
+
+    public BankManagerLoginPage selectBankManagerLogin() {
         bankManagerLoginBtn.click();
         return new BankManagerLoginPage();
     }

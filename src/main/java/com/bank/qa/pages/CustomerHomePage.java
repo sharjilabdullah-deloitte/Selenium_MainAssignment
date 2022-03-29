@@ -33,10 +33,7 @@ public class CustomerHomePage extends TestBase  {
         PageFactory.initElements(driver,this);
     }
 
-    public TransactionPage verifyTransaction(){
-        transactionsBtn.click();
-        return new TransactionPage();
-    }
+
 
     public int deposit() throws IOException {
         depositBtn.click();

@@ -7,11 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BankManagerLoginPage extends TestBase {
 
-    WebElement addCustomerBtn = driver.findElement(By.xpath("//button[@ng-class='btnClass1']"));
-    WebElement openAccountBtn = driver.findElement(By.xpath("//button[@ng-class='btnClass2']"));
+    WebElement addCustomerBtn,openAccountBtn;
+
 
     public BankManagerLoginPage(){
         PageFactory.initElements(driver,this);
+        addCustomerBtn = driver.findElement(By.xpath("//button[@ng-class='btnClass1']"));
+        openAccountBtn = driver.findElement(By.xpath("//button[@ng-class='btnClass2']"));
     }
 
     public AddCustomer setAddCustomerBtn(){

@@ -30,6 +30,7 @@ public class CustomerHomePageTest extends TestBase {
         customerHomePage = customerLogin.login();
     }
 
+    /*
     @Test(priority = 1)
     public void verifyTransactionTest(){
         customerHomePage.verifyTransaction();
@@ -38,7 +39,9 @@ public class CustomerHomePageTest extends TestBase {
         Assert.assertEquals(showedTransaction,233442); //Hard Coded change this ..!!
     }
 
-    @Test (priority = 2)
+     */
+
+    @Test (priority = 1)
     public void verifyUpdatedAmount() throws IOException {
 
         int prvblnc=CustomerHomePage.prevBalance;
@@ -48,7 +51,7 @@ public class CustomerHomePageTest extends TestBase {
         Assert.assertEquals(CustomerHomePage.depositAmount,dpamnt);
     }
 
-    @Test (priority = 3)
+    @Test (priority = 2)
     public void verifyWithdrawalAmount() throws IOException {
         bfrWithdrawal= Integer.parseInt(driver.findElement(By.xpath("//*[normalize-space()='Dollar']/preceding-sibling::*[1]")).getText());
         customerHomePage.withdrawal();
@@ -57,7 +60,7 @@ public class CustomerHomePageTest extends TestBase {
         Assert.assertEquals(remaining, CustomerHomePage.withDrawalAmount);
     }
 
-    @Test (priority = 4)
+    @Test (priority = 3)
     public void negativeWithdrawal() throws IOException {
         customerHomePage.negativeWithdrawal();
         System.out.println("Negative Expression");

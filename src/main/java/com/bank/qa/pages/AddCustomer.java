@@ -14,13 +14,14 @@ import java.io.IOException;
 
 public class AddCustomer extends TestBase {
 
-    WebElement firstName = driver.findElement(By.xpath("//input[@ng-model='fName']"));
-    WebElement lastName = driver.findElement(By.xpath("//input[@ng-model='lName']"));
-    WebElement zip = driver.findElement(By.xpath("//input[@ng-model='postCd]"));
-    WebElement addCustomerBtn = driver.findElement(By.xpath("//button[@type ='submit']"));
+    WebElement firstName,lastName,zip,addCustomerBtn;
 
     public AddCustomer(){
         PageFactory.initElements(driver,this);
+        firstName = driver.findElement(By.xpath("//input[@ng-model='fName']"));
+        lastName = driver.findElement(By.xpath("//input[@ng-model='lName']"));
+        zip = driver.findElement(By.xpath("//input[@ng-model='postCd']"));
+        addCustomerBtn = driver.findElement(By.xpath("//button[@type ='submit']"));
     }
 
     public void initializeCustomer() throws IOException {
@@ -35,7 +36,7 @@ public class AddCustomer extends TestBase {
         XSSFCell cell2 = row.getCell(2) ; // Zip code
         String fname=cell.getStringCellValue();
         String lname=cell1.getStringCellValue();
-        int pin= Integer.parseInt(cell2.getStringCellValue());
+        int pin = (int)cell2.getNumericCellValue();
 
         System.out.println("***READING DEPOSIT DATA FROM EXCEEL SHEET");
         firstName.sendKeys(fname);
