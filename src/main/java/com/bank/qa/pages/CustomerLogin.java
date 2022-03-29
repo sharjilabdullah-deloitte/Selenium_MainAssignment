@@ -7,14 +7,17 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 public class CustomerLogin extends TestBase {
 
-    Select name = new Select(driver.findElement(By.id("userSelect")));
-
-
-    WebElement LoginButton = driver.findElement(By.xpath("//button[contains(text(),'Login')]"));
-
+    Select name ;
+    WebElement loginButton ;
     //Initializing Page Objects
     public CustomerLogin(){
         PageFactory.initElements(driver,this);
+    }
+
+    public void selectAndFindElement() {
+
+         name = new Select(driver.findElement(By.id("userSelect")));
+         loginButton = driver.findElement(By.xpath("//button[contains(text(),'Login')]"));
     }
 
     //Functions :
@@ -25,7 +28,7 @@ public class CustomerLogin extends TestBase {
         return naam;
     }
     public CustomerHomePage login(){
-        LoginButton.click();
+        loginButton.click();
         return new CustomerHomePage();
     }
 

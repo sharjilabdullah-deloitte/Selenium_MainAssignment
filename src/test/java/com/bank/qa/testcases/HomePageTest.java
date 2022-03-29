@@ -27,25 +27,27 @@ public class HomePageTest extends TestBase {
     public void setUp() throws IOException {
         initialization();
         homePage=new HomePage();
-        homePage.selectBankManagerLogin();
-        bankManagerLoginPage= new BankManagerLoginPage();
-        bankManagerLoginPage.setAddCustomerBtn();
-        addCustomer= new AddCustomer();
-        addCustomer.initializeCustomer();
-        customerLogin=new CustomerLogin();
+        //customerLogin=new CustomerLogin();
 
     }
 
     @Test(priority = 1)
 
-    public void selectBankManagerLoginPageTest(){
+    public void selectBankManagerLoginPageTest() throws IOException {
         bankManagerLoginPage= homePage.selectBankManagerLogin();
+        bankManagerLoginPage.setAddCustomerBtn();
+        bankManagerLoginPage.setOpenAccountBtn();
     }
 
     @Test(priority = 2)
     public void selectCustomerLoginTest(){
-        //customerLogin=new CustomerLogin();
+        //CustomerLogin custLogin = new CustomerLogin();
+        customerLogin = new CustomerLogin();
         customerLogin=homePage.selectCustomerLogin();
+        customerLogin.selectAndFindElement();
+        customerLogin.selectName();
+        customerLogin.login();
+
     }
 
     @AfterMethod

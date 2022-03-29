@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
+
 public class BankManagerLoginPage extends TestBase {
 
     WebElement addCustomerBtn,openAccountBtn;
@@ -16,13 +18,19 @@ public class BankManagerLoginPage extends TestBase {
         openAccountBtn = driver.findElement(By.xpath("//button[@ng-class='btnClass2']"));
     }
 
-    public AddCustomer setAddCustomerBtn(){
+    public AddCustomer setAddCustomerBtn() throws IOException {
         addCustomerBtn.click();
-        return new AddCustomer();
+        AddCustomer addCustomer = new AddCustomer();
+        addCustomer.initializeCustomer();
+        return addCustomer;
     }
 
     public OpenAccount setOpenAccountBtn(){
         openAccountBtn.click();
+        OpenAccount openAccount = new OpenAccount();
+        openAccount.getCustName();
+        openAccount.getCurrencyOption();
+        openAccount.setProcessBtn();
         return new OpenAccount();
     }
 }

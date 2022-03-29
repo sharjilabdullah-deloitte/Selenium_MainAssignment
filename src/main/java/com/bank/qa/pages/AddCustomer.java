@@ -43,6 +43,7 @@ public class AddCustomer extends TestBase {
         lastName.sendKeys(lname);
         zip.sendKeys(String.valueOf(pin));
         addCustomerBtn.click();
+        driver.switchTo().alert().accept();
     }
 
 
